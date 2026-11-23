@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#303222">
+  <meta name="description" content="Fary World — um universo de florestas encantadas, cortes mágicas e descobertas.">
+  <title>Fary World | Entre no mundo mágico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Fary World - início">Fary <span>World</span></a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="navegacao-principal" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="mapa.html">Mundos</a>
+      <a href="personagens.html">Personagens</a>
+      <a href="quiz.html">Testes</a>
+      <a class="nav-login" href="login.html">Entrar no mundo</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Bem-vindos</p>
+        <h1>Fary <span>World</span></h1>
+        <a class="magic-button" href="#historia-modal" id="abrir-historia">Conheça a história <span aria-hidden="true">⟶</span></a>
+      </div>
+      <img class="hero-fairy" src="assets/fada.png" alt="Fada vintage com vestido verde e asas delicadas">
+      <img class="decorative-flower hero-lily" src="assets/flor-lirio.png" alt="">
+      <img class="decorative-flower hero-pink" src="assets/flor-rosa.png" alt="">
+      <span class="hero-roses" aria-hidden="true"></span>
+    </section>
+
+    <section class="world-section" id="historia">
+      <div class="world-panel" id="mundos">
+        <div class="world-text">
+          <p class="section-kicker">Um universo além da imaginação</p>
+          <h2>O Mundo</h2>
+          <p>Quatro regiões, e quatro cortes, e cada uma delas guarda uma história fascinante.</p>
+          <a class="magic-button magic-button-small" href="mapa.html">Saiba mais <span aria-hidden="true">⟶</span></a>
+        </div>
+        <img src="assets/mapa.png" alt="Floresta encantada com um rio de águas brilhantes">
+        <img class="decorative-flower world-lily" src="assets/flor-lirio.png" alt="">
+        <img class="decorative-flower world-pink-top" src="assets/flor-rosa.png" alt="">
+        <img class="decorative-flower world-pink-bottom" src="assets/flor-rosa.png" alt="">
+      </div>
+    </section>
+
+    <section class="characters-section" id="personagens">
+      <img class="decorative-flower character-pink-left" src="assets/flor-rosa.png" alt="">
+      <img class="decorative-flower character-pink-right" src="assets/flor-rosa.png" alt="">
+      <h2>Personagens</h2>
+      <p class="characters-intro">Conheça os seres que habitam as quatro cortes mágicas.</p>
+      <div class="character-grid">
+        <a class="character-card character-card-link" href="personagens.html" aria-label="Conhecer todos os personagens">
+          <div class="character-art art-spring"><span>✧</span></div>
+          <h3>Mago</h3><p>Sábio e ligado à magia.</p>
+        </a>
+        <a class="character-card character-card-link" href="personagens.html" aria-label="Conhecer todos os personagens">
+          <div class="character-art art-summer"><span>⌁</span></div>
+          <h3>Elfo</h3><p>Ágil, atento e ligado à natureza.</p>
+        </a>
+        <a class="character-card character-card-link" href="personagens.html" aria-label="Conhecer todos os personagens">
+          <div class="character-art art-autumn"><span>✦</span></div>
+          <h3>Fada</h3><p>Encantadora, gentil e mágica.</p>
+        </a>
+        <a class="character-card character-card-link" href="personagens.html" aria-label="Conhecer todos os personagens">
+          <div class="character-art art-winter"><span>❧</span></div>
+          <h3>Duende</h3><p>Esperto, curioso e brincalhão.</p>
+        </a>
+      </div>
+      <a class="magic-button magic-button-small" href="personagens.html">Ver mais <span aria-hidden="true">⟶</span></a>
+    </section>
+
+    <div class="section-separator" aria-hidden="true">
+      <img class="decorative-flower separator-lily separator-lily-left" src="assets/flor-lirio.png" alt="">
+      <img class="decorative-flower separator-lily separator-lily-right" src="assets/flor-lirio.png" alt="">
+    </div>
+
+    <!-- Mantido no index como no layout original: chamada visual para o teste com a poção. -->
+    <section class="lineage-section" id="testes">
+      <div class="potion-art" aria-hidden="true">
+        <div class="potion-cork"></div><div class="potion-neck"></div>
+        <div class="potion-bottle"><span>✦</span><span>✧</span><span>✦</span></div>
+        <span class="potion-seal">✧</span>
+      </div>
+      <div class="lineage-copy">
+        <p class="lineage-kicker">✧　 TESTE DE AFINIDADE MÁGICA　 ✧</p>
+        <h2>Descubra a sua <strong>Linhagem</strong></h2>
+        <a class="magic-button" href="quiz.html">Faça o teste <span aria-hidden="true">⟶</span></a>
+      </div>
+      <div class="golden-spark" aria-hidden="true"></div>
+    </section>
+  </main>
+
+<div class="mapa-overlay historia-overlay" id="historia-modal" aria-hidden="true">
+        <article class="mapa-janela historia-janela" role="dialog"
+            aria-modal="true"
+            aria-labelledby="historia-titulo"
+            tabindex="-1">
+
+            <button type="button" class="mapa-fechar" id="historia-fechar"
+                aria-label="Fechar história">×</button>
+
+            <div class="mapa-capa historia-capa">
+                <span class="mapa-categoria">UMA JORNADA ENTRE REINOS</span>
+            </div>
+
+            <div class="mapa-informacoes">
+                <span class="mapa-selo">✦ CRÔNICAS DE FAIRYWORLD ✦</span>
+
+                <h2 id="historia-titulo">FairyWorld</h2>
+
+                <p class="mapa-descricao">
+                    Sete reinos. Uma herdeira. Um destino que jamais deveria ter sido seu.
+                </p>
+
+                <h3>Sinopse</h3>
+
+                <p class="mapa-historia">
+                    Quando um sono profundo e inexplicável se abate sobre seu reino,
+                    deixando para trás devastação, silêncio e um povo sem esperança,
+                    Elorya vê o mundo que conhecia desmoronar diante de seus olhos.
+                    Agora, à sombra do legado de seu pai, a jovem herdeira deverá
+                    provar que é digna de governar os sete reinos de FairyWorld.
+                </p>
+
+                <p class="mapa-historia">
+                    Mas conquistar a confiança de sete povos será apenas o começo.
+                    Ao lado de aliados improváveis, Elorya partirá em uma jornada
+                    perigosa em busca de um arquimago tão poderoso quanto temido,
+                    cuja magia é capaz de subjugar até os seres mais extraordinários
+                    e arrancar deles seus próprios dons.
+                </p>
+
+                <p class="mapa-historia">
+                    Entre terras esquecidas, alianças frágeis e inimigos ocultos,
+                    a jovem descobrirá que nem todas as verdades foram feitas
+                    para serem reveladas. Em seu caminho, encontrará amores
+                    que desafiarão suas certezas, segredos capazes de destruir
+                    tudo aquilo em que acredita e perdas para as quais nenhuma
+                    coroa poderia prepará-la.
+                </p>
+
+                <p class="mapa-historia">
+                    Pois, enquanto os reinos aguardam por uma soberana,
+                    Elorya precisará enfrentar algo muito maior do que
+                    o medo de fracassar: a possibilidade de que salvar
+                    seu mundo lhe custe tudo o que ama.
+                </p>
+            </div>
+        </article>
+    </div>
+
+
+
+  <footer class="site-footer"><p>Fary World <span>✧</span> Onde a magia floresce</p></footer>
+
+  <!-- Trilha sonora original em estilo de sinos mágicos; só toca após interação do visitante. -->
+  <audio id="ambient-audio" loop preload="none">
+    <source src="assets/som-de-fada.mp3" type="audio/mpeg">
+  </audio>
+  <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Ligar som de fada">
+    <span class="sound-icon" aria-hidden="true">♫</span><span class="sound-label">Som desligado</span>
+  </button>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+    <script src="script-personagens-mundos.js" defer></script>
+</body>
+</html>

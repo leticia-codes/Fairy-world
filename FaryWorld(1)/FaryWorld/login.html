@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#303222"><title>Entrar no Mundo | Fary World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="subpage">
+  <header class="site-header">
+    <a class="logo" href="index.html">Fary <span>World</span></a>
+    <a class="back-home" href="index.html">← Voltar ao início</a>
+  </header>
+  <main class="account-page">
+    <section class="account-card">
+      <img class="decorative-flower account-flower" src="assets/flor-lirio.png" alt="">
+      <p class="lineage-kicker">✧　 PORTAL DAS FADAS　 ✧</p>
+      <h1>Entre no <em>mundo</em></h1>
+      <p class="account-description">Faça seu cadastro ou entre para continuar sua jornada encantada.</p>
+      <div class="account-tabs" role="tablist" aria-label="Acesso à conta">
+        <button class="account-tab active" type="button" data-panel="login-panel">Entrar</button>
+        <button class="account-tab" type="button" data-panel="register-panel">Criar conta</button>
+      </div>
+      <form id="login-panel" class="account-form active">
+        <label for="login-email">E-mail</label><input id="login-email" type="email" placeholder="voce@exemplo.com" required>
+        <label for="login-password">Senha</label><input id="login-password" type="password" placeholder="Sua senha" required minlength="6">
+        <button class="magic-button form-submit" type="submit">Entrar no mundo <span>⟶</span></button>
+      </form>
+      <form id="register-panel" class="account-form">
+        <label for="register-name">Nome de viajante</label><input id="register-name" type="text" placeholder="Como devemos chamar você?" required>
+        <label for="register-email">E-mail</label><input id="register-email" type="email" placeholder="voce@exemplo.com" required>
+        <label for="register-password">Crie uma senha</label><input id="register-password" type="password" placeholder="Mínimo de 6 caracteres" required minlength="6">
+        <button class="magic-button form-submit" type="submit">Criar minha conta <span>⟶</span></button>
+      </form>
+      <p class="form-feedback" aria-live="polite"></p>
+      <p class="demo-note">Protótipo demonstrativo: o formulário valida os campos no navegador, mas ainda não cria contas nem autentica usuários em um servidor.</p>
+    </section>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="script.js"></script>
+
+  <!-- Som ambiente disponível em todas as páginas -->
+  <audio id="ambient-audio" loop preload="none">
+    <source src="assets/som-de-fada.mp3" type="audio/mpeg">
+  </audio>
+  <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Ligar som de fada">
+    <span class="sound-icon" aria-hidden="true">♫</span><span class="sound-label">Som desligado</span>
+  </button>
+</body>
+</html>

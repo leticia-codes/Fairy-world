@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa dos Reinos | FairyWorld</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="mapa-pagina">
+
+    <header class="site-header">
+        <a class="logo" href="index.html" aria-label="FairyWorld - início">
+            Fairy <span>World</span>
+        </a>
+
+        <button class="menu-toggle" type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="navegacao-principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav" id="navegacao-principal"
+            aria-label="Navegação principal">
+            <a href="index.html#inicio">Início</a>
+            <a href="mapa.html" aria-current="page">Mundos</a>
+            <a href="personagens.html">Personagens</a>
+            <a href="quiz.html">Testes</a>
+            <a class="nav-login" href="login.html">Entrar no mundo</a>
+        </nav>
+    </header>
+
+    <main class="mapa-conteudo">
+
+        <header class="mapa-cabecalho">
+            <div>
+                <span class="mapa-etiqueta">
+                    FAIRYWORLD • ATLAS MÁGICO
+                </span>
+                <h1>Os Reinos de FairyWorld</h1>
+                <p>Explore territórios, descubra histórias e conheça seus governantes.</p>
+            </div>
+
+            <div class="mapa-pesquisa">
+                <span aria-hidden="true">⌕</span>
+                <input type="search" id="mapa-pesquisar"
+                    placeholder="Pesquisar território..."
+                    aria-label="Pesquisar territórios"
+                    autocomplete="off">
+            </div>
+        </header>
+
+        <section class="mapa-moldura">
+            <div class="mapa-imagem-area">
+                <img src="assets/mapa.png"
+                    alt="Mapa dos reinos de FairyWorld"
+                    class="mapa-imagem">
+
+                <button type="button" class="mapa-ponto"
+                    data-reino="elarion"
+                    aria-label="Conhecer Elarion"
+                    style="--x:20%;--y:20%">
+                    <span class="mapa-marcador"></span>
+                    <span class="mapa-nome">Elarion</span>
+                </button>
+
+                <button type="button" class="mapa-ponto"
+                    data-reino="umbrelia"
+                    aria-label="Conhecer Umbrelia"
+                    style="--x:50%;--y:20%">
+                    <span class="mapa-marcador"></span>
+                    <span class="mapa-nome">Umbrelia</span>
+                </button>
+
+                <button type="button" class="mapa-ponto"
+                    data-reino="miravel"
+                    aria-label="Conhecer Miravél"
+                    style="--x:83%;--y:23%">
+                    <span class="mapa-marcador"></span>
+                    <span class="mapa-nome">Miravél</span>
+                </button>
+
+                <button type="button" class="mapa-ponto"
+                    data-reino="aurelia"
+                    aria-label="Conhecer Aurelia"
+                    style="--x:18%;--y:47%">
+                    <span class="mapa-marcador"></span>
+                    <span class="mapa-nome">Aurelia</span>
+                </button>
+
+                <button type="button" class="mapa-ponto"
+                    data-reino="nytheria"
+                    aria-label="Conhecer Nytheria"
+                    style="--x:50%;--y:56%">
+                    <span class="mapa-marcador"></span>
+                    <span class="mapa-nome">Nytheria</span>
+                </button>
+
+                <button type="button" class="mapa-ponto"
+                    data-reino="dravora"
+                    aria-label="Conhecer Dravora"
+                    style="--x:83%;--y:58%">
+                    <span class="mapa-marcador"></span>
+                    <span class="mapa-nome">Dravora</span>
+                </button>
+
+                <button type="button" class="mapa-ponto"
+                    data-reino="orvelia"
+                    aria-label="Conhecer Orvélia"
+                    style="--x:21%;--y:79%">
+                    <span class="mapa-marcador"></span>
+                    <span class="mapa-nome">Orvélia</span>
+                </button>
+            </div>
+        </section>
+
+        <div class="mapa-legenda">
+            <span>✧ Clique nos marcadores para conhecer os territórios</span>
+            <span id="mapa-contador">7 territórios disponíveis</span>
+        </div>
+
+        <section class="mapa-listagem">
+            <h2>Territórios conhecidos</h2>
+            <div class="mapa-atalhos" id="mapa-atalhos"></div>
+        </section>
+
+    </main>
+
+    <div class="mapa-overlay" id="mapa-modal" aria-hidden="true">
+        <article class="mapa-janela" role="dialog"
+            aria-modal="true"
+            aria-labelledby="mapa-titulo"
+            tabindex="-1">
+
+            <button type="button" class="mapa-fechar"
+                id="mapa-fechar" aria-label="Fechar">×</button>
+
+            <div class="mapa-capa" id="mapa-capa">
+                <span class="mapa-categoria" id="mapa-categoria"></span>
+            </div>
+
+            <div class="mapa-informacoes">
+                <span class="mapa-selo">✦ CRÔNICAS DE FAIRYWORLD</span>
+
+                <h2 id="mapa-titulo"></h2>
+                <p class="mapa-descricao" id="mapa-descricao"></p>
+
+                <div class="mapa-dados">
+                    <div>
+                        <span>GOVERNANTE</span>
+                        <strong id="mapa-governante"></strong>
+                    </div>
+                    <div>
+                        <span>HABITANTES</span>
+                        <strong id="mapa-habitantes"></strong>
+                    </div>
+                    <div>
+                        <span>MAGIA PREDOMINANTE</span>
+                        <strong id="mapa-magia"></strong>
+                    </div>
+                    <div>
+                        <span>LOCAL IMPORTANTE</span>
+                        <strong id="mapa-local"></strong>
+                    </div>
+                </div>
+
+                <h3>História do território</h3>
+                <p class="mapa-historia" id="mapa-historia"></p>
+
+                <div class="mapa-navegacao">
+                    <button type="button" id="mapa-anterior">
+                        ← Anterior
+                    </button>
+                    <span id="mapa-indice"></span>
+                    <button type="button" id="mapa-proximo">
+                        Próximo →
+                    </button>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+    <script src="script-personagens-mundos.js" defer></script>
+
+  <!-- Som ambiente disponível em todas as páginas -->
+  <audio id="ambient-audio" loop preload="none">
+    <source src="assets/som-de-fada.mp3" type="audio/mpeg">
+  </audio>
+  <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Ligar som de fada">
+    <span class="sound-icon" aria-hidden="true">♫</span><span class="sound-label">Som desligado</span>
+  </button>
+</body>
+</html>
