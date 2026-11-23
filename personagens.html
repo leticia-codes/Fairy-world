@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#303222">
+    <title>Personagens | FairyWorld</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body class="pagina-personagens">
+
+    <header class="site-header">
+        <a class="logo" href="index.html" aria-label="FairyWorld - início">
+            Fairy <span>World</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+            <a href="index.html#inicio">Início</a>
+            <a href="mapa.html">Mundos</a>
+            <a href="personagens.html" aria-current="page">Personagens</a>
+            <a href="quiz.html">Testes</a>
+            <a class="nav-login" href="login.html">Entrar no mundo</a>
+        </nav>
+    </header>
+
+    <main class="pagina">
+
+        <section class="topo-personagens">
+
+            <div class="acoes-topo">
+
+                <div class="pesquisa">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        aria-hidden="true"
+                    >
+                        <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                        <path d="m16 16 5 5"></path>
+                    </svg>
+
+                    <input
+                        type="search"
+                        id="pesquisar"
+                        placeholder="Buscar nome, poder, aparência..."
+                        aria-label="Pesquisar personagens"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="menu-container">
+
+                    <button
+                        type="button"
+                        class="botao-redondo botao-menu"
+                        id="menu"
+                        aria-label="Ordenar personagens"
+                        aria-expanded="false"
+                        aria-controls="menu-opcoes"
+                    >
+                        <span aria-hidden="true">☷</span>
+                        <span>Ordenar</span>
+                    </button>
+
+                    <div class="menu-opcoes" id="menu-opcoes">
+                        <p class="menu-titulo">ORGANIZAR CATÁLOGO</p>
+
+                        <button type="button" id="mostrar-todos">
+                            Todos os personagens
+                        </button>
+
+                        <button type="button" id="ordenar-az">
+                            Ordem alfabética (A–Z)
+                        </button>
+
+                        <button type="button" id="ordenar-za">
+                            Ordem alfabética (Z–A)
+                        </button>
+
+                        <div class="menu-divisor"></div>
+
+                        <button type="button" id="limpar">
+                            Limpar pesquisa
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="catalogo-cabecalho">
+                <div>
+                    <span class="catalogo-etiqueta">
+                        EXPLORE THE ARCHIVE
+                    </span>
+
+                    <h1>Escolha seu personagem</h1>
+                </div>
+
+                <span class="catalogo-indicacao">
+                    DESLIZE PARA EXPLORAR →
+                </span>
+            </div>
+
+            <div class="carrossel-area">
+                <div class="carrossel" id="carrossel"></div>
+            </div>
+
+            <div class="rodape-catalogo">
+                <p
+                    class="contador-personagens"
+                    id="contador-personagens"
+                    aria-live="polite"
+                >
+                    30 personagens encontrados
+                </p>
+            </div>
+
+        </section>
+
+        <div class="faixa-personagens" aria-hidden="true">
+            <span class="faixa-linha"></span>
+            <span class="faixa-ornamento">✦</span>
+            <span class="faixa-texto"></span>
+            <span class="faixa-ornamento">✦</span>
+            <span class="faixa-linha"></span>
+        </div>
+
+        <section class="detalhes" id="detalhes">
+
+            <div class="detalhes-conteudo">
+
+                <div class="coluna-esquerda">
+
+    
+
+                    <h2 class="titulo-principal" id="nome-principal"></h2>
+
+                    <p class="tipo-personagem" id="tipo-personagem"></p>
+
+                    <div class="traco"></div>
+
+                    <div class="bloco-personagem">
+                        <h3>Significado</h3>
+                        <p id="significado"></p>
+                    </div>
+
+                    <div class="bloco-personagem">
+                        <h3>Poder e habilidades</h3>
+                        <p id="poder"></p>
+                    </div>
+
+                </div>
+
+                <div class="centro">
+                    <div class="aura"></div>
+
+                    <img
+                        class="imagem-principal"
+                        id="imagem-principal"
+                        alt="Personagem selecionado"
+                    >
+                </div>
+
+                <div class="coluna-direita">
+
+    
+
+                    <h2 class="titulo-lateral">Aparência</h2>
+
+                    <div class="traco"></div>
+
+                    <p class="descricao" id="aparencia"></p>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof window.jQuery === "undefined") return;
+
+            const $ = window.jQuery;
+            const carrossel = document.getElementById("carrossel");
+            const detalhes = document.getElementById("detalhes");
+            const botaoOrdenar = document.getElementById("menu");
+            const menuOpcoes = document.getElementById("menu-opcoes");
+
+            function fecharMenu() {
+                $(menuOpcoes).stop(true, true).fadeOut(150);
+                botaoOrdenar.setAttribute("aria-expanded", "false");
+            }
+
+            function ordenarPersonagens(sentido) {
+                if (
+                    typeof listaAtual === "undefined" ||
+                    typeof renderizarCards !== "function"
+                ) {
+                    return;
+                }
+
+                listaAtual.sort(function(a, b) {
+                    return a.nome.localeCompare(b.nome, "pt-BR") * sentido;
+                });
+
+                renderizarCards();
+                fecharMenu();
+            }
+
+            $("#ordenar-az").on("click", function() {
+                ordenarPersonagens(1);
+            });
+
+            $("#ordenar-za").on("click", function() {
+                ordenarPersonagens(-1);
+            });
+
+            if (carrossel && detalhes) {
+                carrossel.addEventListener("click", function(evento) {
+                    const card = evento.target.closest(".card-personagem");
+
+                    if (!card) return;
+
+                    setTimeout(function() {
+                        detalhes.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+                    }, 150);
+                });
+
+                carrossel.addEventListener("wheel", function(evento) {
+                    if (
+                        window.innerWidth > 768 &&
+                        Math.abs(evento.deltaY) > Math.abs(evento.deltaX) &&
+                        carrossel.scrollWidth > carrossel.clientWidth
+                    ) {
+                        evento.preventDefault();
+                        carrossel.scrollLeft += evento.deltaY;
+                    }
+                }, { passive: false });
+            }
+        });
+    </script>
+
+    <script src="script-personagens-mundos.js" defer></script>
+
+  <!-- Som ambiente disponível em todas as páginas -->
+  <audio id="ambient-audio" loop preload="none">
+    <source src="assets/som-de-fada.mp3" type="audio/mpeg">
+  </audio>
+  <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Ligar som de fada">
+    <span class="sound-icon" aria-hidden="true">♫</span><span class="sound-label">Som desligado</span>
+  </button>
+</body>
+</html>

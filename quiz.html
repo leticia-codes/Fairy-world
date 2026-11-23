@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#303222">
+    <title>Teste de Personagem | FairyWorld</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="subpage pagina-quiz">
+
+    <header class="site-header">
+        <a class="logo" href="index.html" aria-label="FairyWorld - início">
+            Fairy <span>World</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="mapa.html">Mundos</a>
+            <a href="personagens.html">Personagens</a>
+            <a href="quiz.html" aria-current="page">Testes</a>
+            <a class="nav-login" href="login.html">Entrar no mundo</a>
+        </nav>
+    </header>
+
+    <main class="quiz-page">
+
+        <section class="quiz-intro" id="quiz-intro">
+            <div class="quiz-intro-content">
+                <p class="lineage-kicker">✧ THE MIRROR OF SOULS ✧</p>
+                <span class="quiz-chapter">O ESPELHO DAS ALMAS</span>
+
+                <h1>Quem você seria em <em>FairyWorld?</em></h1>
+
+                <p>
+                    Em um mundo de coroas esquecidas, florestas vivas e magia ancestral,
+                    suas escolhas revelam mais do que você imagina.
+                </p>
+
+                <p>
+                    Dez perguntas. Dez decisões. Um reflexo que talvez você ainda não conheça.
+                </p>
+
+                <div class="quiz-intro-bottom">
+                    <button class="gold-button" id="start-quiz" type="button">
+                        Revelar minha essência <span>⟶</span>
+                    </button>
+
+                    <span class="quiz-duration">
+                        10 perguntas · Aproximadamente 3 minutos
+                    </span>
+                </div>
+            </div>
+
+            <div class="quiz-intro-art" aria-hidden="true">
+                <span class="quiz-orbit orbit-one"></span>
+                <span class="quiz-orbit orbit-two"></span>
+                <span class="quiz-orbit orbit-three"></span>
+                <span class="quiz-mirror-symbol">✧</span>
+                <span class="quiz-mirror-caption">YOUR FATE AWAITS</span>
+            </div>
+        </section>
+
+        <section class="quiz-card" id="quiz-card" hidden>
+            <div class="quiz-progress">
+                <span id="question-count">Pergunta 01 de 10</span>
+                <span id="quiz-percentage">0%</span>
+            </div>
+
+            <div class="progress-track">
+                <span id="progress-fill"></span>
+            </div>
+
+            <p class="quiz-question-label">O ESPELHO PERGUNTA</p>
+
+            <h2 id="question-title"></h2>
+
+            <p class="question-hint">
+                Não escolha o que parece mais correto.
+                Escolha o que você realmente faria.
+            </p>
+
+            <div class="answer-list" id="answer-list"></div>
+
+            <div class="quiz-actions">
+                <button class="text-button" id="previous-question" type="button" disabled>
+                    ← Anterior
+                </button>
+
+                <button class="gold-button" id="next-question" type="button" disabled>
+                    Continuar ⟶
+                </button>
+            </div>
+
+            <p class="quiz-error" id="quiz-error" aria-live="polite"></p>
+        </section>
+
+        <section class="quiz-result" id="quiz-result" hidden aria-live="polite">
+            <p class="lineage-kicker">✧ THE MIRROR HAS SPOKEN ✧</p>
+            <p class="quiz-result-kicker">O ESPELHO REVELOU SUA ESSÊNCIA</p>
+
+            <div class="quiz-result-layout">
+                <div class="quiz-result-portrait">
+                    <img id="result-image" src="" alt="">
+                    <span class="quiz-result-seal">SOUL MATCH</span>
+                </div>
+
+                <div class="quiz-result-info">
+                    <span class="quiz-result-small">
+                        Seu reflexo em FairyWorld é...
+                    </span>
+
+                    <h2 id="result-title"></h2>
+                    <p id="result-type" class="quiz-result-type"></p>
+                    <p id="result-description" class="quiz-result-description"></p>
+
+                    <div class="quiz-result-divider"></div>
+
+                    <span class="quiz-result-field">
+                        O QUE VOCÊS COMPARTILHAM
+                    </span>
+                    <p id="result-traits"></p>
+
+                    <span class="quiz-result-field">
+                        SEU PODER NESTE MUNDO
+                    </span>
+                    <p id="result-power"></p>
+                </div>
+            </div>
+
+            <div class="quiz-result-actions">
+                <button class="gold-button" id="save-result" type="button">
+                    Guardar meu resultado ✧
+                </button>
+
+                <a class="quiz-secondary-button" href="personagens.html">
+                    Conhecer os personagens ↗
+                </a>
+
+                <button class="text-button restart-button" id="restart-quiz" type="button">
+                    Refazer o teste
+                </button>
+            </div>
+
+            <p class="quiz-save-feedback" id="quiz-save-feedback" aria-live="polite"></p>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>FAIRY <span>WORLD</span> · DESCUBRA SEU REINO. ENCONTRE SUA MAGIA.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+
+  <!-- Som ambiente disponível em todas as páginas -->
+  <audio id="ambient-audio" loop preload="none">
+    <source src="assets/som-de-fada.mp3" type="audio/mpeg">
+  </audio>
+  <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Ligar som de fada">
+    <span class="sound-icon" aria-hidden="true">♫</span><span class="sound-label">Som desligado</span>
+  </button>
+</body>
+</html>
